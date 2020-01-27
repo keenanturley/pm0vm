@@ -9,6 +9,7 @@ Assignment: Homework #1 (P-Machine)
 #include <stdlib.h>
 #include "pm0.h"
 #include "loader.h"
+#include "debug.h"
 
 int main(int argc, char ** argv) {
     if (argc != 2) {
@@ -18,6 +19,8 @@ int main(int argc, char ** argv) {
 
     p_machine * vm = create_machine();
     load(argv[1], vm);
+
+    print_assembly(vm);
 
     run(vm);
 
