@@ -27,6 +27,7 @@ typedef struct p_machine {
     instruction code[MAX_CODE_LENGTH];
 
     int halt; /* Halt flag */
+    int code_length; /* Current code length */
 } p_machine;
 
 /*

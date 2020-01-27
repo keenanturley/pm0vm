@@ -31,6 +31,8 @@ void load(char * file_path, p_machine * vm) {
         line_num++;
     }
 
+    vm->code_length = line_num + 1;
+
     if (line) {
         free(line);
     }
