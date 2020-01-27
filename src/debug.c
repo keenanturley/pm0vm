@@ -15,6 +15,7 @@ void print_assembly(p_machine * vm) {
         printf("%d\t%s\t%d\t%d\t%d\n", i, OPERATOR_NAMES[ins->op - 1],
             ins->r, ins->l, ins->m);
     }
+    printf("\n");
 }
 
 void print_initial_values(p_machine * vm) {
@@ -42,6 +43,7 @@ void print_state(p_machine * vm) {
     for (int i = 0; i < NUM_REGISTERS; i++) {
         printf("%d ", vm->RF[i]);
     }
+    printf("\n");
 
     printf("Stack: ");
     for (int i = 0; i < vm->SP; i++) {
