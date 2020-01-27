@@ -75,9 +75,14 @@ void run(p_machine * vm);
 
 /*
 Function: base
-
+    Get the base pointer of the stack from l levels below
+Parameters:
+    p_machine * vm:
+        The machine whos base pointer to use
+    int l:
+        The amount of levels to traverse down
 */
-int base(p_machine * vm, int l, int base);
+int base(p_machine * vm, int l);
 
 /*
 Function: destroy
