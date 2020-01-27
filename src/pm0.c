@@ -114,6 +114,13 @@ void execute(p_machine * vm) {
     }
 }
 
+void run(p_machine * vm) {
+    for (int i = 0; i < MAX_CODE_LENGTH && vm->halt == 0; i++) {
+        fetch(vm);
+        execute(vm);
+    }
+}
+
 int base(p_machine * vm, int l) {
     int b1;
     b1 = vm->BP;
