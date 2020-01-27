@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include "loader.h"
+#include "debug.h"
 
 void parse_instruction(char * line, instruction * i) {
     char * op = strtok(line, " ");
@@ -38,4 +39,9 @@ void load(char * file_path, p_machine * vm) {
     }
 
     fclose(fp);
+
+    if (vm->debug_mode) {
+        print_assembly(vm);
+        print_initial_values(vm);
+    }
 }

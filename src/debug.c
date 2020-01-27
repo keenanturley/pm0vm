@@ -16,3 +16,36 @@ void print_assembly(p_machine * vm) {
             ins->r, ins->l, ins->m);
     }
 }
+
+void print_initial_values(p_machine * vm) {
+    printf("\t\tpc\tbp\tsp\tregisters\n");
+
+    printf("Initial values\t%d\t%d\t%d\t", vm->PC, vm->BP, vm->SP);
+    for (int i = 0; i < NUM_REGISTERS; i++) {
+        printf("%d ", vm->RF[i]);
+    }
+    printf("\n");
+
+    printf("Stack: ");
+    for (int i = 0; i < MAX_STACK_HEIGHT; i++) {
+        printf("%d ", vm->stack[i]);
+    }
+    printf("\n\n");
+}
+
+void print_state(p_machine * vm) {
+    printf("\t\tpc\tbp\tsp\tregisters\n");
+
+    printf("%d %s %d %d %d\t", vm->PC - 1, OPERATOR_NAMES[vm->IR.op - 1],
+        vm->IR.r, vm->IR.l, vm->IR.m);
+    printf("%d\t%d\t%d\t", vm->PC, vm->BP, vm->SP);
+    for (int i = 0; i < NUM_REGISTERS; i++) {
+        printf("%d ", vm->RF[i]);
+    }
+
+    printf("Stack: ");
+    for (int i = 0; i < vm->SP; i++) {
+        printf("%d ", vm->stack[i]);
+    }
+    printf("\n\n");
+}

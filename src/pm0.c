@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "pm0.h"
+#include "debug.h"
 
 p_machine * create_machine() {
     p_machine * vm = (p_machine *)malloc(sizeof(p_machine));
@@ -19,6 +20,9 @@ p_machine * create_machine() {
     }
 
     vm->halt = 0;
+    vm->code_length = 0;
+
+    vm->debug_mode = 0;
 
     return vm;
 }
@@ -116,11 +120,13 @@ void execute(p_machine * vm) {
 
 void step(p_machine * vm) {
     fetch(vm);
+    if (vm->debug_mode)
+        print_state(vm);
     execute(vm);
 }
 
 void run(p_machine * vm) {
-    for (int i = 0; i < MAX_CODE_LENGTH && vm->halt == 0; i++) {
+    while (vm->PC < MAX_CODE_LENGTH && vm->halt == 0) {
         step(vm);
     }
 }
