@@ -64,6 +64,15 @@ Parameters:
 void execute(p_machine * vm);
 
 /*
+Function: step
+    Steps through one cycle (fetch + execute) of the given PM/0 machine.
+Parameters:
+    p_machine * vm:
+        The PM/0 machine to make a step in
+*/
+void step(p_machine * vm);
+
+/*
 Function: run
     Begins the p-machine cycles, fetching and executing instructions
     until either the end of the program is indicated by an instruction or

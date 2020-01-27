@@ -114,10 +114,14 @@ void execute(p_machine * vm) {
     }
 }
 
+void step(p_machine * vm) {
+    fetch(vm);
+    execute(vm);
+}
+
 void run(p_machine * vm) {
     for (int i = 0; i < MAX_CODE_LENGTH && vm->halt == 0; i++) {
-        fetch(vm);
-        execute(vm);
+        step(vm);
     }
 }
 
