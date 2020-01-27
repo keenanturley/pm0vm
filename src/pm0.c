@@ -130,3 +130,8 @@ int base(p_machine * vm, int l) {
     }
     return b1;
 }
+
+p_machine * destroy(p_machine * vm) {
+    free(vm);
+    return NULL;
+}
