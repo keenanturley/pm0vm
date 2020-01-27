@@ -25,6 +25,8 @@ typedef struct p_machine {
 
     int stack[MAX_STACK_HEIGHT];
     instruction code[MAX_CODE_LENGTH];
+
+    int halt; /* Halt flag */
 } p_machine;
 
 /*
@@ -65,8 +67,17 @@ Function: run
     Begins the p-machine cycles, fetching and executing instructions
     until either the end of the program is indicated by an instruction or
     the code array has been exhausted.
+Parameters:
+    p_machine * vm:
+        The machine to run
 */
-void run();
+void run(p_machine * vm);
+
+/*
+Function: base
+
+*/
+int base(p_machine * vm, int l, int base);
 
 /*
 Function: destroy
