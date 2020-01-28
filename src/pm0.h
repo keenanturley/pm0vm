@@ -13,6 +13,8 @@ typedef struct instruction {
     int r;
     int l;
     int m;
+
+    int line_number;
 } instruction;
 
 typedef struct p_machine {

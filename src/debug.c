@@ -37,8 +37,8 @@ void print_initial_values(p_machine * vm) {
 void print_state(p_machine * vm) {
     printf("\t\tpc\tbp\tsp\tregisters\n");
 
-    printf("%d %s %d %d %d\t", vm->PC - 1, OPERATOR_NAMES[vm->IR.op - 1],
-        vm->IR.r, vm->IR.l, vm->IR.m);
+    printf("%d %s %d %d %d\t", vm->IR.line_number,
+        OPERATOR_NAMES[vm->IR.op - 1], vm->IR.r, vm->IR.l, vm->IR.m);
     printf("%d\t%d\t%d\t", vm->PC, vm->BP, vm->SP);
     for (int i = 0; i < NUM_REGISTERS; i++) {
         printf("%d ", vm->RF[i]);

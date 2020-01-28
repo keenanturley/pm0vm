@@ -9,7 +9,7 @@ p_machine * create_machine() {
     vm->BP = 1;
     vm->PC = 0;
 
-    vm->IR.l = vm->IR.m = vm->IR.op = vm->IR.r = 0;
+    vm->IR.l = vm->IR.m = vm->IR.op = vm->IR.r = vm->IR.line_number = 0;
 
     for (int i = 0; i < NUM_REGISTERS; i++) {
         vm->RF[i] = 0;
@@ -120,9 +120,9 @@ void execute(p_machine * vm) {
 
 void step(p_machine * vm) {
     fetch(vm);
+    execute(vm);
     if (vm->debug_mode)
         print_state(vm);
-    execute(vm);
 }
 
 void run(p_machine * vm) {

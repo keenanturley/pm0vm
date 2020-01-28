@@ -29,6 +29,7 @@ void load(char * file_path, p_machine * vm) {
 
     while (getline(&line, &n, fp) != -1) {
         parse_instruction(line, &(vm->code[line_num]));
+        vm->code[line_num].line_number = line_num;
         line_num++;
     }
 
