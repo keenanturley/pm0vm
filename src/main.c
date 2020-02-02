@@ -14,7 +14,7 @@ Assignment: Homework #1 (P-Machine)
 int main(int argc, char ** argv) {
     // Handle invalid program arguments
     if (argc != 2) {
-        fprintf(stderr, "usage: ./pm0vm <file-path>\n");
+        fprintf(stderr, "usage: ./pm0vm (file-path)\n");
         return EXIT_FAILURE;
     }
 
