@@ -35,7 +35,7 @@ void print_initial_values(p_machine * vm) {
 }
 
 void print_state(p_machine * vm) {
-    printf("%2d %s %-2d %-2d %-9d", vm->IR.line_number,
+    printf("%-3d %s %-2d %-2d %-8d", vm->IR.line_number,
         OPERATOR_NAMES[vm->IR.op - 1], vm->IR.r, vm->IR.l, vm->IR.m);
     printf("%-8d%-8d%-8d", vm->PC, vm->BP, vm->SP);
     for (int i = 0; i < NUM_REGISTERS; i++) {
