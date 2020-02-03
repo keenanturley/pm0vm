@@ -1,5 +1,6 @@
 /*
-Author: Keenan Turley <keenan.turley@knights.ucf.edu>
+Authors: Keenan Turley <keenan.turley@knights.ucf.edu>
+         Alexander Desmond <alexdesmond@knights.ucf.edu>
 Date: 2020-01-27
 Course: COP3402 - Systems Software
 Assignment: Homework #1 (P-Machine)
