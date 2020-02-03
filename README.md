@@ -1,6 +1,7 @@
 # PM/0 Virtual Machine - UCF COP3402 Project
 
-## Authors 
+## Authors
+
 **Keenan Turley** <keenan.turley@knights.ucf.edu> and **Alexander Desmond** <alexdesmond@knights.ucf.edu>
 
 ## Introduction
