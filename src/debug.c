@@ -19,7 +19,7 @@ void print_assembly(p_machine * vm) {
 }
 
 void print_initial_values(p_machine * vm) {
-    printf("%18c  %-4s    %-4s    %-4s    %s\n", ' ', "pc", "bp", "sp", "registers");
+    printf("%18c  %-4s    %-4s    %-5s    %s\n", ' ', "pc", "bp", "sp", "registers");
 
     printf("%-18s   %-4d    %-4d    %-4d    ", "Initial values", vm->PC, vm->BP, vm->SP);
     for (int i = 0; i < NUM_REGISTERS; i++) {
