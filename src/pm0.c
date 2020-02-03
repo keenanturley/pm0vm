@@ -40,6 +40,7 @@ void execute(p_machine * vm) {
             break;
         case 2: // RTN - return from subroutine
             vm->SP = vm->BP - 1;
+            vm->AR[vm->BP] = 0;
             vm->BP = vm->stack[vm->SP + 3];
             vm->PC = vm->stack[vm->SP + 4];
             break;
@@ -55,6 +56,7 @@ void execute(p_machine * vm) {
             vm->stack[vm->SP + 3] = vm->BP;
             vm->stack[vm->SP + 4] = vm->PC;
             vm->BP = vm->SP + 1;
+            vm->AR[vm->BP] = 1; // Activation record border at index vm->BP
             vm->PC = i->m;
             break;
         case 6: // INC - increment SP by M (allocating locals)

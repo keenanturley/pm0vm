@@ -45,6 +45,9 @@ void print_state(p_machine * vm) {
 
     printf("Stack: ");
     for (int i = 1; i <= vm->SP && i < MAX_STACK_HEIGHT; i++) {
+        if(vm->AR[i] == 1){
+            printf("| ");
+        }
         printf("%d ", vm->stack[i]);
     }
     printf("\n\n");

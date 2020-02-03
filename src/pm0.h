@@ -31,6 +31,7 @@ typedef struct p_machine {
     int halt; /* Halt flag */
     int code_length; /* Current code length */
     int debug_mode; /* Debug mode flag*/
+    int AR[MAX_STACK_HEIGHT];
 } p_machine;
 
 /*
