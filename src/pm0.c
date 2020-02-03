@@ -66,7 +66,7 @@ void execute(p_machine * vm) {
             vm->PC = i->m;
             break;
         case 8: // JPC - Jump to m if register has 0
-            if (vm->RF == 0)
+            if (vm->RF[i->r] == 0)
                 vm->PC = i->m;
             break;
         case 9: // SIO - Write register to screen
