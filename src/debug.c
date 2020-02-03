@@ -28,7 +28,7 @@ void print_initial_values(p_machine * vm) {
     printf("\n");
 
     printf("Stack: ");
-    for (int i = 0; i < MAX_STACK_HEIGHT; i++) {
+    for (int i = 1; i < MAX_STACK_HEIGHT; i++) {
         printf("%d ", vm->stack[i]);
     }
     printf("\n\n");
@@ -44,7 +44,7 @@ void print_state(p_machine * vm) {
     printf("\n");
 
     printf("Stack: ");
-    for (int i = 0; i < vm->SP; i++) {
+    for (int i = 1; i < vm->SP; i++) {
         printf("%d ", vm->stack[i]);
     }
     printf("\n\n");
