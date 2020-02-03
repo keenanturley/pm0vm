@@ -8,20 +8,20 @@ const char * OPERATOR_NAMES[] = {
 
 void print_assembly(p_machine * vm) {
     // Headers
-    printf("Line\tOP\tR\tL\tM\n");
+    printf("Line  OP   R  L  M\n");
     instruction * ins;
     for (int i = 0; i < vm->code_length; i++) {
         ins = &(vm->code[i]);
-        printf("%d\t%s\t%d\t%d\t%d\n", i, OPERATOR_NAMES[ins->op - 1],
+        printf("%-4d  %-3s  %1d  %1d  %d\n", i, OPERATOR_NAMES[ins->op - 1],
             ins->r, ins->l, ins->m);
     }
     printf("\n");
 }
 
 void print_initial_values(p_machine * vm) {
-    printf("\t\tpc\tbp\tsp\tregisters\n");
+    printf("%16c  %-4s    %-4s    %-4s    %s\n", ' ', "pc", "bp", "sp", "registers");
 
-    printf("Initial values\t%d\t%d\t%d\t", vm->PC, vm->BP, vm->SP);
+    printf("%-16s  %-4d    %-4d    %-4d    ", "Initial values", vm->PC, vm->BP, vm->SP);
     for (int i = 0; i < NUM_REGISTERS; i++) {
         printf("%d ", vm->RF[i]);
     }
