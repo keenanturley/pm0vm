@@ -28,7 +28,7 @@ void print_initial_values(p_machine * vm) {
     printf("\n");
 
     printf("Stack: ");
-    for (int i = 1; i < MAX_STACK_HEIGHT; i++) {
+    for (int i = 0; i < MAX_STACK_HEIGHT; i++) {
         printf("%d ", vm->stack[i]);
     }
     printf("\n\n");
@@ -38,13 +38,13 @@ void print_state(p_machine * vm) {
     printf("%2d %s %d %d %d\t", vm->IR.line_number,
         OPERATOR_NAMES[vm->IR.op - 1], vm->IR.r, vm->IR.l, vm->IR.m);
     printf("%d\t%d\t%d\t", vm->PC, vm->BP, vm->SP);
-    for (int i = 0; i < NUM_REGISTERS; i++) {
+    for (int i = 1; i < NUM_REGISTERS; i++) {
         printf("%d ", vm->RF[i]);
     }
     printf("\n");
 
     printf("Stack: ");
-    for (int i = 1; i < vm->SP; i++) {
+    for (int i = 1; i <= vm->SP && i < MAX_STACK_HEIGHT; i++) {
         printf("%d ", vm->stack[i]);
     }
     printf("\n\n");
