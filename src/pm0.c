@@ -70,9 +70,10 @@ void execute(p_machine * vm) {
                 vm->PC = i->m;
             break;
         case 9: // SIO - Write register to screen
-            printf("%d\n", vm->RF[i->r]);
+            printf("$R%d = %d\n", i->r, vm->RF[i->r]);
             break;
         case 10: // SIO - Read user input into register
+            printf("Input a value to put in $R%d: ", i->r);
             scanf("%d", &(vm->RF[i->r]));
             break;
         case 11: // SIO - halt / end of program
